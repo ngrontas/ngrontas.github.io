@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información Médica</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Garamond", sans-serif;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-weight: 700;
+        }
+
+        .header {
+            background-color: #33b6e56d;
+            color: #000000;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 3px;
+            margin-bottom: 7px;
+            background-color: #33b6e56d;
+            color: #000000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .aside {
+            background-color: #33b6e56d;
+            padding: 15px;
+            color: #000000;
+            text-align: center;
+            font-size: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .footer {
+            background-color: #33b6e56d;
+            color: #000000;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        .main_content {
+            text-align: center;
+        }
+
+        .center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            margin-bottom: auto;
+        }
+
+        hr.main {
+            border: 3px solid #1b5d756d;
+        }
+
+        hr.dot {
+            border-top: 1px dashed #1b5d756d;
+        }
+
+        @media only screen and (max-width: 580px) {
+
+            /* For mobile phones: */
+            [class*="col-"] {
+                width: 100%;
+            }
+
+            html {
+                background-color: #ffffff
+            }
+        }
+
+        @media only screen and (min-width: 580px) {
+
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 30%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 70%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+
+
+            html {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @media only screen and (min-width: 758px) {
+
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+
+            html {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Tumor de el cerebro</h1>
+    </div>
+    <div class="row">
+        <div class="col-3 col-s-3 menu">
+            <ul>
+                <li id="overview" onclick="changeContent('overview')">El Resumen</li>
+                <li id="symptoms" onclick="changeContent('symptoms')">Síntomas</li>
+                <li id="myths" onclick="changeContent('myths')">Mitos y Conceptos Erróneos</li>
+                <li id="refutation" onclick="changeContent('refutation')">Refutación Científica</li>
+                <li id="treatment" onclick="changeContent('treatment')">El tratamiento</li>
+            </ul>
+            <div class="center">
+                <img src="https://raw.githubusercontent.com/ngrontas/dgrontas/main/cancerribbon.png" width="70%"
+                    height="70%" frameBorder="0" />
+            </div>
+        </div>
+        <div class="col-6 col-s-9 main_content">
+            <h1 id="body_title"></h1>
+            <p id="body_content"></p>
+
+            <div style="width:100%;height:0;padding-bottom:55%;position:relative;">
+                <img src="https://raw.githubusercontent.com/ngrontas/dgrontas/main/mexicomask.png" width="100%"
+                    height="75%" style="position:absolute; margin-left: -50%;" frameBorder="0" />
+            </div>
+        </div>
+
+        <div class="col-3 col-s-12 right">
+            <div class="aside">
+                <h1>Recursos de la comunidad</h1>
+                <hr class="main">
+                <h2>El médico</h2>
+                <p><u>Instituto de Investigación y Especialista en Cáncer de Florida
+                        <br>(386) 943-9946</u>
+                </p>
+                <hr class="dot">
+                <h2>Apoyo financiero y emocional</h2>
+                <p><u>Fundación Nacional de Asistencia contra el Cáncer: NATCAF.org</u><br>
+                    <br>Ayudan financieramente con el alquiler, los servicios públicos, los comestibles, el
+                    cuidado de los niños, etc. Local en Daytona Beach, Fl
+                </p>
+                <hr class="dot">
+                <p><u>Sociedad americana del cancer: Cancer.org
+                        <br>La línea de ayuda
+                        <br>(800) 227-2345</u><br>
+                    <br>Ayudan para apoyo emocional, paseos enc oche a médicos o tratamientos, y alojamiento
+                    durante el tratamiento.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Para más información llame Danielle Grontas, estudiante NP al (896) 392-4488</p>
+    </div>
+
+    <script>
+        changeContent('overview');
+        function changeContent(myField) {
+            var titleText = '';
+            var bodyText = '';
+            var contentTitle = document.getElementById("body_title");
+            var contentBody = document.getElementById("body_content");
+            var sideLinks = document.querySelectorAll('li');
+            var selectedLink = document.getElementById(myField);
+
+            for (var i = 0; i < sideLinks.length; i++) {
+                sideLinks[i].style.backgroundColor = '#33b6e56d';
+            }
+
+            selectedLink.style.backgroundColor = '#0099cc';
+
+            switch (myField) {
+                case 'overview':
+                    titleText = 'El Resumen';
+                    bodyText = 'Alguna tiempre abnormale células forma tumor en el cerebro. Ello puedo ser benigno (no es cáncer) o maligno (es cáncer). ' +
+                        'En Mexico, el tipo más común de tumor cerebral son los gliomas con glioblastomas que representan el 12-15% y el 75% de todos ' +
+                        'los tumores malignos del sistema nerviosa central.';
+                    break;
+                case 'symptoms':
+                    titleText = 'Síntomas';
+                    bodyText = 'El dolor de cabeza (más común), la náusea y el vomito, convulsiones, pérdida de memoria y confusión.';
+                    break;
+                case 'myths':
+                    titleText = 'Mitos y Conceptos Erróneos';
+                    bodyText = 'Alguno creo el diagnostico de tumor de el cerebro significa que han hecho algo malo y Dios los está castigando.'
+                    break;
+                case 'refutation':
+                    titleText = 'Refutación Científica';
+                    bodyText = 'Tumors del sistema nerviosa central son más común en los niños. No han hecho nada malo.';
+                    break;
+                case 'treatment':
+                    titleText = 'El Tratamiento';
+                    bodyText = 'Primero la cirugía para eliminar el tumor, que si necesitan, la radioterapia y/o la quimioterapia.';
+                    break;
+            }
+
+            contentTitle.innerHTML = titleText;
+            contentBody.innerHTML = bodyText;
+        }
+    </script>
+</body>
+
+</html>
